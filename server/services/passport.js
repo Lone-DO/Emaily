@@ -1,5 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GitHubStrategy = require("passport-github").Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 
@@ -30,6 +31,27 @@ passport.use(
           done(null, existingUser);
         } else {
           new User({ googleID: profile.id })
+            .save()
+            .then(user => done(null, user));
+        }
+      });
+    }
+  )
+);
+
+passport.use(
+  new GitHubStrategy(
+    {
+      clientID: keys.localGClientID,
+      clientSecret: keys.localGClientSecret,
+      callbackURL: "/auth/github/callback"
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ githubID: profile.id }).then(existingUser => {
+        if (existingUser) {
+          done(null, existingUser);
+        } else {
+          new User({ githubID: profile.id })
             .save()
             .then(user => done(null, user));
         }

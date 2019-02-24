@@ -13,7 +13,10 @@ module.exports = app => {
   //end googleAuth
 
   //Github Authentication
-  app.get("/auth/github", passport.authenticate("github"));
+  app.get(
+    "/auth/github",
+    passport.authenticate("github", { scope: ["user:email"] })
+  );
 
   app.get(
     "/auth/github/callback",

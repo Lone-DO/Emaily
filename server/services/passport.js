@@ -22,7 +22,8 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.gooogleClientSecret,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/auth/google/callback",
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ googleID: profile.id }).then(existingUser => {
@@ -44,7 +45,8 @@ passport.use(
     {
       clientID: keys.githubClientID,
       clientSecret: keys.githubClientSecret,
-      callbackURL: "/auth/github/callback"
+      callbackURL: "/auth/github/callback",
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       User.findOne({ githubID: profile.id }).then(existingUser => {

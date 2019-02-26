@@ -1,7 +1,7 @@
 const passport = require("passport");
 
 module.exports = app => {
-  //Google Authentication
+  //_______Google Authentication_______
   app.get(
     "/auth/google",
     passport.authenticate("google", {
@@ -12,7 +12,7 @@ module.exports = app => {
   app.get("/auth/google/callback", passport.authenticate("google"));
   //end googleAuth
 
-  //Github Authentication
+  //_______Github Authentication_______
   app.get(
     "/auth/github",
     passport.authenticate("github", { scope: ["user:email"] })

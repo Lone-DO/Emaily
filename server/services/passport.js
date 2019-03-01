@@ -47,13 +47,15 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({ githubID: profile.id }).then(existingUser => {
-        if (existingUser) {
-          return done(null, existingUser);
+      const existingUser = await User.findOne({ githubID: profile.id }).then(
+        existingUser => {
+          if (existingUser) {
+            return done(null, existingUser);
+          }
+          const user = new User({ githubID: profile.id }).save();
+          done(null, user);
         }
-        const user = new User({ githubID: profile.id }).save();
-        done(null, user);
-      });
+      );
     }
   )
 );

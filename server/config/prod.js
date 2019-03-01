@@ -10,5 +10,5 @@ module.exports = {
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
   //______________
   mongoURI: process.env.MONGO_URI,
-  cookieKey: process.env.COOKIE_KEY,
+  cookieKey: process.env.COOKIE_KEY
 };

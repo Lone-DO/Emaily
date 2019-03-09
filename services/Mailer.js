@@ -13,6 +13,7 @@ class Mailer extends helper.Mail {
 
     // Bind target body to content
     this.addContent(this.body);
+    this.addClickTracking();
   }
 
   // Seperate email properties from array
@@ -20,6 +21,15 @@ class Mailer extends helper.Mail {
     return recipients.map(({ email }) => {
       return new helper.Email(email);
     });
+  }
+
+  // Setting up by following sendgrid Documentation...
+  addClickTracking() {
+    const trackingSettings = new helper.TrackingSettings();
+    const clickTracking = new helper.ClickTracking(true, true);
+
+    trackingSettings.setClickTracking(clickTracking);
+    this.addTrackingSettings(trackingSettings);
   }
 }
 

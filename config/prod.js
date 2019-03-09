@@ -11,5 +11,6 @@ module.exports = {
   //______________
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY,
-  sendgridKey: process.env.SEND_GRID_KEY
+  sendgridKey: process.env.SEND_GRID_KEY,
+  redirectDomain: process.env.REDIRECT_DOMAIN
 };

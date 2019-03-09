@@ -14,3 +14,12 @@
     <li>Node.js, Express, Passport.js, Mongoose, Body-Parser</li>
     <li>materialize-css, http-proxy-middleware, Axios</li>
 </ul>
+
+## Testing Enviroment
+
+If you wish to test the application, 
+- create an account by signing in
+- click "Add Credits"
+    - Insert the following card number "4242 4242 4242 4242"
+    - The rest of the information can be completly made up, just verify Card number is correct
+- Finalize Transaction, Credits should be applied to your account

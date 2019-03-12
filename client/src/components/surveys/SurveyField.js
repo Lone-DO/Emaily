@@ -2,10 +2,12 @@
 
 import React from "react";
 
-export default () => {
+export default ({ input, label }) => {
+  console.log(input);
   return (
     <div>
-      <input />
+      <label>{label}</label>
+      <input {...input} />
     </div>
   );
 };

@@ -1,10 +1,14 @@
+// SurveyNew renders SurveyForm
 import React, { Component } from "react";
+import SurveyForm from "./SurveyForm";
 
 class SurveyNew extends Component {
   render() {
     return (
       // Component Boiler plate setup
-      <div>SurveyNew</div>
+      <div>
+        <SurveyForm />
+      </div>
     );
   }
 }

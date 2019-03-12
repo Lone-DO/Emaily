@@ -2,6 +2,8 @@ const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0
 
 export default emails => {
   const invalidEmails = emails
+    .replace(/^\s*,$/, "")
+    .replace(/,\s*$/, "")
     .split(",")
     .map(email => email.trim())
     .filter(email => re.test(email) === false);

@@ -11,7 +11,7 @@ class SurveyNew extends Component {
     if (this.state.showFormReview) {
       return (
         <SurveyFormReview
-          onCancle={() => this.setState({ showFormReview: false })}
+          onCancel={() => this.setState({ showFormReview: false })}
         />
       );
     }

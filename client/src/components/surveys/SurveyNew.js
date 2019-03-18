@@ -1,5 +1,6 @@
 // SurveyNew renders SurveyForm
 import React, { Component } from "react";
+import { reduxForm } from "redux-form";
 import SurveyForm from "./SurveyForm";
 import SurveyFormReview from "./SurveyFormReview";
 
@@ -30,4 +31,7 @@ class SurveyNew extends Component {
   }
 }
 
-export default SurveyNew;
+// Destroy values in Survey when cancelled, leaving SurveyNew Module
+export default reduxForm({
+  form: "surveyForm"
+})(SurveyNew);
